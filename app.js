@@ -1,10 +1,10 @@
     const Championes = [
-        {id: 1, producto:"Nike AirMax", precio: 5490, imagen: 'Nike-logo.jpg'},
-        {id: 2, producto:"Adidas Coreracer", precio: 4290, imagen: 'historia-origen-marcas-adidas.jpg'},
-        {id: 3, producto:"Puma Xray Deportivo", precio: 4990, imagen: 'PUMA-logo.jpg'},
-        {id: 4, producto:"Reebok Triplehall", precio: 2880, imagen: 'Reebok.jpg'},
-        {id: 5, producto:"New Balance Lifestyle", precio: 3990, imagen: 'New-Balance-logo.jpg'},
-        {id: 5, producto:"York Umbro", precio: 4150, imagen: 'New-Balance-logo.jpeg'},
+        {id: 1, producto:"Nike AirMax", precio: 5490, imagen: '../assets/img/Nike-logo.jpg'},
+        {id: 2, producto:"Adidas Coreracer", precio: 4290, imagen: '../assets/img/historia-origen-marcas-adidas.jpg'},
+        {id: 3, producto:"Puma Xray Deportivo", precio: 4990, imagen: '../assets/img/PUMA-logo.jpg'},
+        {id: 4, producto:"Reebok Triplehall", precio: 2880, imagen: '../assets/img/Reebok.jpg' },
+        {id: 5, producto:"New Balance Lifestyle", precio: 3990, imagen: '../assets/img/New-Balance-logo.jpg'},
+        {id: 6, producto:"York Umbro", precio: 4150, imagen: '../assets/img/Umbro-Logo-1999.jpg'},
     ]
 
     let carrito = [];
@@ -28,7 +28,7 @@
             CardBody.classList.add('card-body');
             const Titulo = document.createElement('h5');
             Titulo.classList.add('card-title');
-            Titulo.textContent = info.nombre;
+            Titulo.textContent = info.producto;
             const Imagen = document.createElement('img');
             Imagen.classList.add('img-fluid');
             Imagen.setAttribute('src', info.imagen);
@@ -68,7 +68,7 @@
             }, 0);
             const Clase = document.createElement('li');
             Clase.classList.add('list-group-item', 'text-right', 'mx-2');
-            Clase.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
+            Clase.textContent = `${numeroUnidadesItem} x ${miItem[0].producto} - ${miItem[0].precio}${divisa}`;
             const miBoton = document.createElement('button');
             miBoton.classList.add('btn', 'btn-danger', 'mx-5');
             miBoton.textContent = 'X';
@@ -109,4 +109,13 @@
     renderizarProductos();
     renderizarCarrito();
 
-console.log ( new Date() )
+    function comprarCarrito() {
+        carrito = [];
+        renderizarCarrito();
+    }
+    
+    comprarProducto.addEventListener('click', comprarCarrito);
+    
+    renderizarProductos();
+    renderizarCarrito();
+
